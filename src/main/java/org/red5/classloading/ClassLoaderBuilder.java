@@ -50,6 +50,42 @@ public final class ClassLoaderBuilder {
      * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6516909
      * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4976356
      */
+	
+	
+	private static String PLATFORM;
+
+	static {
+        String jvmName = System.getProperty("java.vm.name", "").toLowerCase();
+        String osName  = System.getProperty("os.name", "").toLowerCase();
+        String osArch  = System.getProperty("os.arch", "").toLowerCase();
+        String abiType = System.getProperty("sun.arch.abi", "").toLowerCase();
+        String libPath = System.getProperty("sun.boot.library.path", "").toLowerCase();
+        if (jvmName.startsWith("dalvik") && osName.startsWith("linux")) {
+            osName = "android";
+        } else if (jvmName.startsWith("robovm") && osName.startsWith("darwin")) {
+            osName = "ios";
+            osArch = "arm";
+        } else if (osName.startsWith("mac os x") || osName.startsWith("darwin")) {
+            osName = "macosx";
+        } else {
+            int spaceIndex = osName.indexOf(' ');
+            if (spaceIndex > 0) {
+                osName = osName.substring(0, spaceIndex);
+            }
+        }
+        if (osArch.equals("i386") || osArch.equals("i486") || osArch.equals("i586") || osArch.equals("i686")) {
+            osArch = "x86";
+        } else if (osArch.equals("amd64") || osArch.equals("x86-64") || osArch.equals("x64")) {
+            osArch = "x86_64";
+        } else if (osArch.startsWith("aarch64") || osArch.startsWith("armv8") || osArch.startsWith("arm64")) {
+            osArch = "arm64";
+        } else if ((osArch.startsWith("arm")) && ((abiType.equals("gnueabihf")) || (libPath.contains("openjdk-armhf")))) {
+            osArch = "armhf";
+        } else if (osArch.startsWith("arm")) {
+            osArch = "arm";
+        }
+        PLATFORM = osName + "-" + osArch;
+    }
 
     /**
      * Load the Servlet code from the WAR file and use the current classpath for the libraries.
@@ -263,7 +299,19 @@ public final class ClassLoaderBuilder {
             if (pluginsFiles != null) {
                 for (File plugin : pluginsFiles) {
                     try {
-                        urlList.add(plugin.toURI().toURL());
+                    	
+                    	String parseUrl = parseUrl(plugin.toURI().toURL());
+                    	if (parseUrl.endsWith("x86") || parseUrl.endsWith("x86_64") ||
+                    			parseUrl.endsWith("arm64") || parseUrl.endsWith("armhf") ||
+                    			parseUrl.endsWith("ppc64le") || parseUrl.endsWith("arm")) 
+                    	{
+                    		if (parseUrl.endsWith(PLATFORM)) {
+                    			urlList.add(plugin.toURI().toURL());
+                    		}
+                    	}
+                    	else {
+                    		urlList.add(plugin.toURI().toURL());
+                    	}
                     } catch (MalformedURLException e) {
                         System.err.printf("Exception %s\n", e);
                     }
