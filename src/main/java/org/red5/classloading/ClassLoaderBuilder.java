@@ -198,12 +198,12 @@ public final class ClassLoaderBuilder {
 
             try {
                 // add red5.jar to the classpath
-                File red5jar = new File(home, "red5-server.jar");
+                File red5jar = new File(home, "ant-media-server.jar");
                 if (!red5jar.exists()) {
-                    System.out.println("Red5 server jar was not found, using fallback.");
-                    red5jar = new File(home, "red5.jar");
+                    System.out.println("Ant Media Server jar was not found, using fallback.");
+                    red5jar = new File(home, "ant-media-server.jar");
                 } else {
-                    System.out.println("Red5 server jar was found");
+                    System.out.println("Ant Media Server jar was found");
                 }
                 urlList.add(red5jar.toURI().toURL());
             } catch (MalformedURLException e1) {

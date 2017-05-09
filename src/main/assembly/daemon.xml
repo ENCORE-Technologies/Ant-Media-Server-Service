@@ -9,9 +9,9 @@
     </formats>
     <files>
         <file>
-            <source>${project.build.directory}/red5-service-${project.version}.jar</source>
+            <source>${project.build.directory}/ant-media-server-service-${project.version}.jar</source>
             <outputDirectory>/</outputDirectory>
-            <destName>red5-service.jar</destName>
+            <destName>ant-media-server-service.jar</destName>
         </file>
     </files>
     <fileSets>

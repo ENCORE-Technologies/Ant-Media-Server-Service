@@ -30,8 +30,8 @@ if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
     set "EXECUTABLE=%RED5_HOME%\prunsrv.exe"
 )
 echo Using Daemon:           "%EXECUTABLE%"
-set SERVICE_NAME=Red5
-set "CLASSPATH=%RED5_HOME%\commons-daemon-1.0.15.jar;%RED5_HOME%\red5-service.jar;%RED5_HOME%\conf"
+set SERVICE_NAME=AntMedia
+set "CLASSPATH=%RED5_HOME%\commons-daemon-1.0.15.jar;%RED5_HOME%\ant-media-server-service.jar;%RED5_HOME%\conf"
 set "WORKING_PATH=%RED5_HOME%\"
 
 rem Make sure prerequisite environment variables are set
@@ -70,8 +70,8 @@ echo Using JVM:              "%JVM%"
 
 echo Installing '%SERVICE_NAME%' service
 "%EXECUTABLE%" //IS//%SERVICE_NAME% ^
-    --Description "Red5 Media Server" ^
-    --DisplayName "Red5 Media Server" ^
+    --Description "Ant Media Server" ^
+    --DisplayName "Ant Media Server" ^
     --Install "%EXECUTABLE%" ^
     --LogPath "%RED5_HOME%\log" ^
     --StdOutput "%RED5_HOME%\log\red5-service.log" ^

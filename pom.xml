@@ -6,14 +6,14 @@
         <version>1.0.9-M2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>red5-service</artifactId>
-    <name>Red5 :: Service</name>
-    <description>The Red5 server service daemon</description>
+    <artifactId>ant-media-server-service</artifactId>
+    <name>Ant Media Server :: Service</name>
+    <description>Ant Media Server service daemon</description>
     <packaging>jar</packaging>
     <url>https://github.com/Red5/red5-service</url>
     <organization>
         <name>Red5</name>
-        <url>https://github.com/Red5</url>
+        <url>https://github.com/ant-media</url>
     </organization>
     <licenses>
         <license>
@@ -31,12 +31,12 @@
     </mailingLists>
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/Red5/red5-service/issues</url>
+        <url>https://github.com/ant-media/Ant-Media-Server-Service</url>
     </issueManagement>
     <scm>
-        <url>https://github.com/Red5/red5-service.git</url>
-        <connection>scm:git:git@github.com:Red5/red5-service.git</connection>
-        <developerConnection>scm:git:git@github.com:Red5/red5-service.git</developerConnection>
+        <url>https://github.com/ant-media/Ant-Media-Server-Service.git</url>
+        <connection>git@github.com:ant-media/Ant-Media-Server-Service.git</connection>
+        <developerConnection>git@github.com:ant-media/Ant-Media-Server-Service.git</developerConnection>
     </scm>
     <developers>
         <developer>
@@ -158,4 +158,5 @@
             <version>${commons-daemon.version}</version>
         </dependency>
     </dependencies>
+    <groupId>io.antmedia</groupId>
 </project>

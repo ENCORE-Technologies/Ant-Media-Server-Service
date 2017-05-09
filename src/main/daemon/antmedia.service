@@ -1,9 +1,9 @@
 [Unit]
-Description=Red5
+Description=AntMedia
 
 [Service]
 Type=simple
-ExecStart=/etc/init.d/red5
+ExecStart=/etc/init.d/antmedia
 
 [Install]
 WantedBy=multi-user.target

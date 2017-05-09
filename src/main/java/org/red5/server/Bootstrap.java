@@ -176,7 +176,7 @@ public class Bootstrap {
         }
         // set/reset property
         System.setProperty("red5.root", root);
-        System.out.printf("Red5 root: %s%n", root);
+        System.out.printf("Root: %s%n", root);
         return root;
     }
 

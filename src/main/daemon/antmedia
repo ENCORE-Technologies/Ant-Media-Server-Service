@@ -1,13 +1,13 @@
 #!/bin/sh
-#  /etc/init.d/red5
+#  /etc/init.d/antmedia
 
 ### BEGIN INIT INFO
-# Provides:          Red5
+# Provides:          AntMedia
 # Required-Start:    $remote_fs $syslog $network
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Starts the red5 service
+# Short-Description: Starts the ant media service
 # Description:       This file is used to start the daemon and should be placed in /etc/init.d
 # chkconfig: 2345 85 85
 # processname: red5
@@ -18,8 +18,8 @@
 # Date:     25/04/2013
 # Modified by Paul Gregoire <mondain[AT]gmail.com> on 18 May 2016
 
-NAME="red5"
-DESC="Red5 service"
+NAME="antmedia"
+DESC="Ant Media Service"
 
 # The path to Jsvc
 EXEC="/usr/bin/jsvc"
@@ -38,7 +38,7 @@ echo "Path $FILE_PATH";
 JAVA_HOME="/usr/lib/jvm/default-java"
 
 # Our classpath including our jar file and the Apache Commons Daemon library
-CLASS_PATH="$FILE_PATH/commons-daemon-1.0.15.jar:$FILE_PATH/red5-service.jar:$FILE_PATH/conf"
+CLASS_PATH="$FILE_PATH/commons-daemon-1.0.15.jar:$FILE_PATH/ant-media-server-service.jar:$FILE_PATH/conf"
 
 # The fully qualified name of the class to execute
 CLASS="org.red5.daemon.EngineLauncher"
