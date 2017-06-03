@@ -41,8 +41,8 @@
             <outputDirectory>/</outputDirectory>
             <fileMode>0755</fileMode>
             <includes>
-                <include>red5</include>
-                <include>red5.service</include>
+                <include>antmedia</include>
+                <include>antmedia.service</include>
             </includes>
             <filtered>true</filtered>
         </fileSet>
