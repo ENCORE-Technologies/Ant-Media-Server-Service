@@ -98,7 +98,9 @@ SECURITY_OPTS="-Djava.security.debug=failure"
 # Set up tomcat options
 TOMCAT_OPTS="-Dcatalina.home=$RED5_HOME"
 
-JAVA_OPTS="$LOGGING_OPTS $SECURITY_OPTS $JAVA_OPTS $JVM_OPTS $NATIVE $TOMCAT_OPTS"
+ADDITIONAL_OPTS="-Djava.library.path=$RED5_HOME/lib/native"
+
+JAVA_OPTS="$LOGGING_OPTS $SECURITY_OPTS $JAVA_OPTS $JVM_OPTS $NATIVE $TOMCAT_OPTS $ADDITIONAL_OPTS"
 
 jsvc_exec()
 {   
