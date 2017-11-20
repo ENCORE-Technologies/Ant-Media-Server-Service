@@ -35,7 +35,7 @@ export RED5_HOME=$FILE_PATH;
 echo "Path $FILE_PATH";
 
 # The path to the folder containing the java runtime
-JAVA_HOME="/usr/lib/jvm/default-java"
+JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 
 # Our classpath including our jar file and the Apache Commons Daemon library
 CLASS_PATH="$FILE_PATH/commons-daemon-1.0.15.jar:$FILE_PATH/ant-media-server-service.jar:$FILE_PATH/conf"
@@ -105,7 +105,7 @@ JAVA_OPTS="$LOGGING_OPTS $SECURITY_OPTS $JAVA_OPTS $JVM_OPTS $NATIVE $TOMCAT_OPT
 jsvc_exec()
 {   
     cd $FILE_PATH
-    $EXEC -home $JAVA_HOME -cp $CLASS_PATH -cwd $RED5_HOME $JAVA_OPTS -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID $1 $CLASS $ARGS
+    $EXEC -home $JAVA_HOME -user antmedia -cp $CLASS_PATH -cwd $RED5_HOME $JAVA_OPTS -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID $1 $CLASS $ARGS
 }
 
 case "$1" in
