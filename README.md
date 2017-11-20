@@ -1,4 +1,4 @@
-# Red5 service
+# Ant Media Server Service
 
 Herein you will find the service / daemon portion of the project. We utilize the [Apache Commons Daemon project](https://commons.apache.org/proper/commons-daemon/) for our service process on all supported platforms; currently [Linux](https://commons.apache.org/proper/commons-daemon/jsvc.html) and [Windows](https://commons.apache.org/proper/commons-daemon/procrun.html) are supported.
 
