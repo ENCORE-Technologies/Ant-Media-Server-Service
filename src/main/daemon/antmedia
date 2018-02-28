@@ -94,7 +94,7 @@ esac
 # Set up logging options
 LOGGING_OPTS="-Dlogback.ContextSelector=org.red5.logging.LoggingContextSelector -Dcatalina.useNaming=true"
 # Set up security options
-SECURITY_OPTS="-Djava.security.debug=failure"
+SECURITY_OPTS="-Djava.security.debug=failure -Djava.security.egd=file:/dev/./urandom"
 # Set up tomcat options
 TOMCAT_OPTS="-Dcatalina.home=$RED5_HOME"
 
