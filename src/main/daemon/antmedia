@@ -113,7 +113,7 @@ case "$1" in
         echo "Starting the $DESC..."        
         
         #define ulimit
-        ulimit -u 16384 -n 65536
+        ulimit -n 65536
         
         # Start the service
         jsvc_exec
