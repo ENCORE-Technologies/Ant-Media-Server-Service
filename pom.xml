@@ -7,7 +7,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>ant-media-server-service</artifactId>
-	<version>${ant-media-service.version}</version>
+	<version>${ant-media-server-service.version}</version>
 	<name>Ant Media Server :: Service</name>
 	<description>Ant Media Server service daemon</description>
 	<packaging>jar</packaging>
