@@ -105,7 +105,7 @@ JAVA_OPTS="$LOGGING_OPTS $SECURITY_OPTS $JAVA_OPTS $JVM_OPTS $NATIVE $TOMCAT_OPT
 jsvc_exec()
 {   
     cd $FILE_PATH
-    $EXEC -home $JAVA_HOME -user antmedia -cp $CLASS_PATH -cwd $RED5_HOME $JAVA_OPTS -outfile $LOG_OUT -errfile $LOG_ERR -pidfile $PID $1 $CLASS $ARGS
+    $EXEC -home $JAVA_HOME -user antmedia -cp $CLASS_PATH -cwd $RED5_HOME $JAVA_OPTS -errfile $LOG_ERR -pidfile $PID $1 $CLASS $ARGS
 }
 
 case "$1" in
