@@ -296,14 +296,12 @@ public final class ClassLoaderBuilder {
 				System.err.printf("Exception %s\n", e);
 			}
 
-			boolean cudaExists = verifyCuda();
-			System.out.println("cuda verify result " + cudaExists);
 			// get all the plugin jars
 			File[] pluginsFiles = pluginsDir.listFiles(jarFileFilter);
 			// this can be null if the dir doesnt exist
 			//pluginsDir.listFiles(filter);
 
-			loadPlugins(pluginsFiles, urlList, cudaExists, PLATFORM);
+			loadPlugins(pluginsFiles, urlList, PLATFORM);
 
 
 
@@ -397,9 +395,7 @@ public final class ClassLoaderBuilder {
 	}
 
 
-	public static void loadPlugins(File[] pluginsFiles, List<URL> urlList, boolean cudaExists, String platform) {
-		URL nativeJarURL = null;
-		boolean cudaAdded = false;
+	public static void loadPlugins(File[] pluginsFiles, List<URL> urlList, String platform) {
 		if (pluginsFiles != null) {
 			for (File plugin : pluginsFiles) {
 				try {
@@ -410,23 +406,7 @@ public final class ClassLoaderBuilder {
 					{
 						if (parseUrl.endsWith(platform)) 
 						{
-							if (parseUrl.indexOf("cuda") != -1) 
-							{
-								if (cudaExists) 
-								{
-									cudaAdded = true;
-									urlList.add(plugin.toURI().toURL());
-									if (nativeJarURL != null) {
-										urlList.remove(nativeJarURL);	
-									}
-								}
-							}
-							else {
-								if (!cudaAdded) {
-									nativeJarURL = plugin.toURI().toURL();
-									urlList.add(nativeJarURL);
-								}
-							}
+							urlList.add(plugin.toURI().toURL());
 						}
 					}
 					else {
@@ -438,20 +418,6 @@ public final class ClassLoaderBuilder {
 			}
 		}
 
-	}
-
-	public static boolean verifyCuda() {
-		Process exec = null;
-		try {
-			exec = Runtime.getRuntime().exec("nvidia-smi");
-			exec.waitFor();
-			return exec.exitValue() == 0; 
-		} catch (IOException e) {
-				//e.printStackTrace();
-		} catch (InterruptedException e) {
-				//e.printStackTrace();
-		}
-		return false;
 	}
 
 	/**

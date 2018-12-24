@@ -31,14 +31,14 @@ public class TestClassLoaderBuilder {
 		
 		List<URL> urlList = new ArrayList();
 		
-		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, true, "linux-x86_64");
+		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, "linux-x86_64");
 		
 		assertEquals(urlList.size(), 1);
 		assertTrue(urlList.get(0).toString().contains("ffmpeg-3.2.1-1.3-cuda-linux-x86_64.jar"));
 		
 		
 		urlList.clear();
-		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, false, "linux-x86_64");
+		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, "linux-x86_64");
 		assertEquals(urlList.size(), 1);
 		assertTrue(urlList.get(0).toString().contains("ffmpeg-3.2.1-1.3-linux-x86_64.jar"));
 		
@@ -54,13 +54,13 @@ public class TestClassLoaderBuilder {
 		
 		
 		urlList.clear();
-		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, true, "linux-x86_64");
+		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, "linux-x86_64");
 		assertEquals(urlList.size(), 1);
 		assertTrue(urlList.get(0).toString().contains("ffmpeg-3.2.1-1.3-linux-x86_64.jar"));
 		
 		
 		urlList.clear();
-		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, false, "linux-x86_64");
+		ClassLoaderBuilder.loadPlugins(pluginFiles, urlList, "linux-x86_64");
 		assertEquals(urlList.size(), 1);
 		assertTrue(urlList.get(0).toString().contains("ffmpeg-3.2.1-1.3-linux-x86_64.jar"));
 		

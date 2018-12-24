@@ -1,8 +1,11 @@
 [Unit]
 Description=AntMedia
+StartLimitIntervalSec=0
 
 [Service]
 Type=simple
+Restart=always
+RestartSec=2
 ExecStart=/etc/init.d/antmedia
 
 [Install]
