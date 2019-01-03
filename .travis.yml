@@ -29,5 +29,6 @@ deploy:
   script: mvn deploy -DskipTests --quiet --settings mvn-settings.xml
   skip_cleanup: true
   on:
+  #deploy to maven if it is a release tagged
     tags: true
-    branch: master
+    condition: $TRAVIS_TAG =~ ^release 
