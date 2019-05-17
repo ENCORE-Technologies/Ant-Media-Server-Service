@@ -32,4 +32,4 @@ deploy:
   on:
   #deploy to maven if it is a release tagged
     tags: true
-    condition: $TRAVIS_TAG =~ ^release 
+    condition: $TRAVIS_TAG =~ ^ams-v
