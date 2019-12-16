@@ -96,7 +96,7 @@ LOGGING_OPTS="-Dlogback.ContextSelector=org.red5.logging.LoggingContextSelector 
 # Set up security options
 SECURITY_OPTS="-Djava.security.debug=failure -Djava.security.egd=file:/dev/./urandom"
 # Set up tomcat options
-TOMCAT_OPTS="-Dcatalina.home=$RED5_HOME"
+TOMCAT_OPTS="-Dcatalina.home=$RED5_HOME -Djava.net.preferIPv4Stack=true"
 
 ADDITIONAL_OPTS="-Djava.library.path=$RED5_HOME/lib/native"
 
