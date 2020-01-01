@@ -98,7 +98,7 @@ SECURITY_OPTS="-Djava.security.debug=failure -Djava.security.egd=file:/dev/./ura
 # Set up tomcat options
 TOMCAT_OPTS="-Dcatalina.home=$RED5_HOME -Djava.net.preferIPv4Stack=true"
 
-ADDITIONAL_OPTS="-Djava.library.path=$RED5_HOME/lib/native"
+ADDITIONAL_OPTS="-Djava.library.path=$RED5_HOME/lib/native -XX:+HeapDumpOnOutOfMemoryError"
 
 JAVA_OPTS="$LOGGING_OPTS $SECURITY_OPTS $JAVA_OPTS $JVM_OPTS $NATIVE $TOMCAT_OPTS $ADDITIONAL_OPTS"
 
