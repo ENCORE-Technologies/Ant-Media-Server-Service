@@ -70,6 +70,7 @@ public class Shutdown {
                 }
             }
             out.println(token);
+            in.readLine(); //wait for server to stop
         } catch (Exception e) {
             System.err.printf("Exception connecting to %s%n", host);
             e.printStackTrace();
