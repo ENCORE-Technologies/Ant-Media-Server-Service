@@ -466,10 +466,17 @@ public final class ClassLoaderBuilder {
 		// }
 		// System.out.println();
 		for (URL top : urls) {
+			
 			if (removalList.contains(top)) {
 				continue;
 			}
 			topName = parseUrl(top);
+			
+			// javafx libraries which ends with linux should not be removed
+			if(topName.startsWith("javafx")) {
+				continue;
+			}
+			
 			// empty name - this happens inside eclipse
 			if ("".equals(topName)) {
 				removalList.add(top);
@@ -500,10 +507,12 @@ public final class ClassLoaderBuilder {
 			String prefix = topName.substring(0, topFirstDash != -1 ? topFirstDash : 3);
 			int topSecondDash = topName.indexOf('-', topFirstDash + 1);
 			for (URL check : list) {
+				
 				if (removalList.contains(check)) {
 					continue;
 				}
 				checkName = parseUrl(check);
+				
 				// if its the same lib just continue with the next
 				if (checkName.equals(topName)) {
 					continue;
@@ -623,6 +632,7 @@ public final class ClassLoaderBuilder {
 				} catch (NumberFormatException nfe) {
 					topVersionNumber = 0;
 					System.err.println("Error parsing topVers:" + topVers);
+					System.err.println("URL: " + top);
 				}
 
 				String[] checkVersion = punct.split(checkVers);
