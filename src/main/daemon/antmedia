@@ -35,7 +35,7 @@ export RED5_HOME=$FILE_PATH;
 echo "Path $FILE_PATH";
 
 # The path to the folder containing the java runtime
-JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
 # Our classpath including our jar file and the Apache Commons Daemon library
 CLASS_PATH="$FILE_PATH/commons-daemon-1.0.15.jar:$FILE_PATH/ant-media-server-service.jar:$FILE_PATH/conf"
